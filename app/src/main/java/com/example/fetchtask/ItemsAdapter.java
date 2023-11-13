@@ -29,7 +29,6 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ViewHolder>{
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Item item = items.get(position);
         holder.textView.setText(item.getName());
-        // Set other views as needed
     }
 
     @Override
