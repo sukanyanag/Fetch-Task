@@ -25,6 +25,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * MainActivity of the application.
+ * This activity is responsible for displaying a list of items in a RecyclerView.
+ */
 public class MainActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
@@ -32,6 +36,14 @@ public class MainActivity extends AppCompatActivity {
     private List<Item> itemList = new ArrayList<>();
     private ProgressBar progressBar;
 
+    /**
+     * Called when the activity is starting.
+     * This is where most initialization goes: calling setContentView(int) to inflate the activity's UI,
+     * using findViewById(int) to programmatically interact with widgets in the UI, calling setAdapter on a RecyclerView, etc.
+     *
+     * @param savedInstanceState If the activity is being re-initialized after previously being shut down then this Bundle
+     *                           contains the data it most recently supplied in onSaveInstanceState(Bundle).
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +64,11 @@ public class MainActivity extends AppCompatActivity {
         fetchData();
     }
 
+    /**
+     * Fetches data from a specified URL and populates the RecyclerView.
+     * This method sends a network request to fetch JSON data, parses the response,
+     * and updates the UI with the parsed data. It handles both successful and failed network requests.
+     */
     private void fetchData() {
         progressBar.setVisibility(View.VISIBLE);
         String url = "https://fetch-hiring.s3.amazonaws.com/hiring.json";
@@ -100,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
                                 Log.d("MainActivity", "Filtered Item: " + item.getName());
                             }
 
-                            // Update the UI on the main thread after processing
+                            // Updating the UI on the main thread after processing
                             runOnUiThread(() -> {
                                 adapter.notifyDataSetChanged();
                                 // Hide progress bar on successful fetch
