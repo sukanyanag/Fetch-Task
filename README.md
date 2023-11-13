@@ -17,8 +17,9 @@ To run this project, clone the repo, and import it into Android Studio.
 git clone https://github.com/sukanyanag/Fetch-Task.git
 ```
 ## Dependencies
-Volley: For efficient network operations and data fetching.
-Android Material Components: For modern, material-styled UI elements.
+
+- Volley: For efficient network operations and data fetching.
+- Android Material Components: For modern, material-styled UI elements.
 
 ## Screenshot
 
